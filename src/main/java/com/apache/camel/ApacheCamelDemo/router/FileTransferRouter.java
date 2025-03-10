@@ -1,4 +1,4 @@
-package com.apache.camel.ApacheCamelDemo;
+package com.apache.camel.ApacheCamelDemo.router;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
