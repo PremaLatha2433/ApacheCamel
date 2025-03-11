@@ -1,7 +1,7 @@
-package com.apache.camel.ApacheCamelDemo.service;
+package com.apache.camel.service;
 
-import com.apache.camel.ApacheCamelDemo.entities.Employee;
-import com.apache.camel.ApacheCamelDemo.repository.EmployeeRepository;
+import com.apache.camel.entities.Employee;
+import com.apache.camel.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

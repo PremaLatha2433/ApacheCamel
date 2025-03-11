@@ -1,6 +1,6 @@
-package com.apache.camel.ApacheCamelDemo.router;
+package com.apache.camel.router;
 
-import com.apache.camel.ApacheCamelDemo.service.BookService;
+import com.apache.camel.service.BookService;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jackson.JacksonDataFormat;
 import org.springframework.http.MediaType;

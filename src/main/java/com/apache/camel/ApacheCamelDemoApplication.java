@@ -1,9 +1,9 @@
-package com.apache.camel.ApacheCamelDemo;
+package com.apache.camel;
 
-import com.apache.camel.ApacheCamelDemo.router.BookRoute;
-import com.apache.camel.ApacheCamelDemo.router.EmployeeRoute;
-import com.apache.camel.ApacheCamelDemo.service.BookService;
-import com.apache.camel.ApacheCamelDemo.service.EmployeeService;
+import com.apache.camel.router.BookRoute;
+import com.apache.camel.router.EmployeeRoute;
+import com.apache.camel.service.BookService;
+import com.apache.camel.service.EmployeeService;
 import org.apache.camel.CamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.springframework.boot.SpringApplication;
