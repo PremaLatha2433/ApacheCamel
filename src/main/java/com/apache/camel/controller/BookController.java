@@ -38,5 +38,15 @@ public class BookController {
         ResponseEntity responseEntity = new ResponseEntity<>("Book Deleted SuccessFully", HttpStatus.OK);
         return responseEntity;
     }
+    @GetMapping("/")
+    public ResponseEntity<?> findAllBooksByPagination(
+            @RequestParam(defaultValue= "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "name") String sortBy,
+            @RequestParam(defaultValue = "asc") String direction
+    ){
+
+        return new ResponseEntity<>(bookService.findAllByPagination(page,size,sortBy,direction),HttpStatus.OK);
+    }
 
 }

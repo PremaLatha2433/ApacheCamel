@@ -18,24 +18,33 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?> saveEmployee(Employee employee)
+    public ResponseEntity<Object> saveEmployee(Employee employee)
     {
         return new ResponseEntity<>(employeeService.saveEmployee(employee),HttpStatus.OK);
     }
 
     @GetMapping("/")
-    private ResponseEntity<?> findAllEmployees(){
+    private ResponseEntity<Object> findAllEmployees(){
         return new ResponseEntity<>(employeeService.findAllEmployees(),HttpStatus.OK);
     }
     @GetMapping("/name/{name}")
-    public ResponseEntity<?> findEmployeeByName(@PathVariable String name){
+    public ResponseEntity<Object> findEmployeeByName(@PathVariable String name){
         return new ResponseEntity<>(employeeService.findEmployeeByEmpName(name),HttpStatus.OK);
     }
 
     @DeleteMapping("/id/{id}")
-    public ResponseEntity<?> removeEmployee(@PathVariable int id){
+    public ResponseEntity<Object> removeEmployee(@PathVariable int id){
         employeeService.removeEmployee(id);
-        ResponseEntity responseEntity = new ResponseEntity<>("Employee Deleted SuccessFully", HttpStatus.OK);
-        return responseEntity;
+        return new ResponseEntity<>("Employee Deleted SuccessFully", HttpStatus.OK);
+    }
+    @GetMapping("/")
+    public ResponseEntity<?> findAllEmployeesByPagination(
+            @RequestParam(defaultValue= "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "empName") String sortBy,
+            @RequestParam(defaultValue = "asc") String direction
+    ){
+
+        return new ResponseEntity<>(employeeService.findAllByPagination(page,size,sortBy,direction),HttpStatus.OK);
     }
 }
