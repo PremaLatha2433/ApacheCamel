@@ -1,4 +1,4 @@
-package com.apache.camel.ApacheCamelDemo.entities;
+package com.apache.camel.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,11 +1,8 @@
-package com.apache.camel.ApacheCamelDemo.router;
+package com.apache.camel.router;
 
-import com.apache.camel.ApacheCamelDemo.entities.Employee;
+import com.apache.camel.entities.Employee;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jackson.JacksonDataFormat;
-import org.apache.camel.model.rest.RestBindingMode;
-import org.apache.camel.spi.PropertiesComponent;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
 @Component

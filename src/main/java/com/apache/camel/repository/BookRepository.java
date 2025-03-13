@@ -1,6 +1,6 @@
-package com.apache.camel.ApacheCamelDemo.repository;
+package com.apache.camel.repository;
 
-import com.apache.camel.ApacheCamelDemo.entities.Book;
+import com.apache.camel.entities.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
