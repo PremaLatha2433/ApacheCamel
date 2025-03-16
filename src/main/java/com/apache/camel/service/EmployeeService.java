@@ -25,6 +25,9 @@ public class EmployeeService {
     public Employee findEmployeeByEmpName(String empName) {
         return employeeRepository.findEmployeeByEmpName(empName);
     }
+    public Employee findEmployeeByEmpId(int id) {
+        return employeeRepository.findById(id).orElse(new Employee());
+    }
 
     public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
@@ -38,5 +41,15 @@ public class EmployeeService {
     {
         Pageable pageable = PageRequest.of(page,size, Sort.by(direction,sortBy));
         return employeeRepository.findAll(pageable);
+    }
+
+    public  Employee updateEmployee(Employee employee,int empId)
+    {
+        Employee employee1 = employeeRepository.findById(empId).get();
+        if(employee1 != null)
+        {
+            employee1=   employeeRepository.save(employee);
+        }
+            return employee1;
     }
 }

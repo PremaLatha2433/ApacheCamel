@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/emp")
 public class EmployeeController {
@@ -18,7 +19,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Object> saveEmployee(Employee employee)
+    public ResponseEntity<Object> saveEmployee(@RequestBody Employee employee)
     {
         return new ResponseEntity<>(employeeService.saveEmployee(employee),HttpStatus.OK);
     }
@@ -37,7 +38,7 @@ public class EmployeeController {
         employeeService.removeEmployee(id);
         return new ResponseEntity<>("Employee Deleted SuccessFully", HttpStatus.OK);
     }
-    @GetMapping("/")
+    @GetMapping("/employees")
     public ResponseEntity<?> findAllEmployeesByPagination(
             @RequestParam(defaultValue= "0") int page,
             @RequestParam(defaultValue = "10") int size,
@@ -46,5 +47,14 @@ public class EmployeeController {
     ){
 
         return new ResponseEntity<>(employeeService.findAllByPagination(page,size,sortBy,direction),HttpStatus.OK);
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Object> updateEmployee(@PathVariable int id, @RequestBody Employee employee)
+    {
+        return new ResponseEntity<>(employeeService.updateEmployee(employee,id),HttpStatus.OK);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> findEmployeeByName(@PathVariable int id){
+        return new ResponseEntity<>(employeeService.findEmployeeByEmpId(id),HttpStatus.OK);
     }
 }
