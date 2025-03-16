@@ -1,6 +1,5 @@
-package com.apache.camel.ApacheCamelDemo;
+package com.apache.camel;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
